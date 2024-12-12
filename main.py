@@ -1,11 +1,14 @@
 from frontend import build_toy_model_ir
 from simpler_fusion import fuse_linear_relu
 from code_generator import generate_numpy_code
+from toy_model import ToyModel
 import numpy as np
 import textwrap
 
-# IR 생성
-ir = build_toy_model_ir()
+model = ToyModel()# 모델 생성
+
+# IR 생성s
+ir = build_toy_model_ir(model)
 
 # 최적화 적용
 optimized_ir = fuse_linear_relu(ir)
